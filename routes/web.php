@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DistributorController;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -32,7 +33,10 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //Grup
 Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     Route::get('/pageInputBuku', [HomeController::class, 'pageInputBuku'])->name('pageInputBuku');
-    Route::get('/pageInputDistributor', [HomeController::class, 'pageInputDistributor'])->name('pageInputDistributor');
+    Route::get('/pageInputDistributor', [DistributorController::class, 'pageInputDistributor'])->name('pageInputDistributor');
+    Route::get('/createDistributor', [DistributorController::class, 'createDistributor'])->name('createDistributor');
+    Route::post('/simpanDistributor', [DistributorController::class, 'simpanDistributor'])->name('simpanDistributor');
+    Route::get('/editDistributor/{id_distributor}', [DistributorController::class, 'editDistributor'])->name('editDistributor');
 });
 
 Route::group(['middleware' => ['auth','ceklevel:admin,kasir']], function(){

@@ -27,32 +27,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <div class="card mt-3">
         <div class="card-body">
-          <a href="{{route('createDistributor')}}" class="btn btn-success float-right mb-3">Tambah Data</a>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Nama Distributor</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Telepon</th>
-                <th scope="col">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($dtDistributor as $item)
-
-              <tr>
-                <th>{{$item->nama_distributor}}</th>
-                <td>{{$item->alamat}}</td>
-                <td>{{$item->telepon}}</td>
-                <td>
-                  <a href="{{url('editDistributor',$item->id_distributor)}}">Edit</a> | <a href="">Delete</a>
-                </td>
-              </tr>
-
-              @endforeach
-              
-            </tbody>
-          </table>
+            <div class="card-header mb-3">
+                <h3>Tambah Data Distributor</h3>
+            </div>
+          
+            <form action="{{route('simpanDistributor')}}" method="post">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <h6>Nama Distributor</h6>
+                    <input type="text" id="nama" name="nama" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <h6>Alamat</h6>
+                    <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <h6>Telepon</h6>
+                    <input type="text" id="telepon" name="telepon" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Simpan Data</button>
+                </div>
+            </form>
+          
         </div>
       </div>
         
@@ -82,7 +79,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- jQuery -->
   @include('Template.script')
-  
-  @include('sweetalert::alert')
 </body>
 </html>
