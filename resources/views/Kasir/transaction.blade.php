@@ -16,42 +16,37 @@
                     <div class="card mt-3">
                         <div class="card-body">
                             <div class="card-header mb-3">
-                                <h3>Data Penjualan</h3>
-                            </div>
-
-                            <div class="my-4">
-                                <button type="button" class="btn btn-primary">Cetak</button>
-                                <button type="button" class="btn btn-success">Export Excel</button>
+                                <h3>Transaksi Penjualan</h3>
                             </div>
 
                             <table id="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">No Faktur</th>
                                         <th scope="col">Judul Buku</th>
-                                        <th scope="col">Jumlah Beli</th>
-                                        <th scope="col">Harga Satuan</th>
-                                        <th scope="col">PPN</th>
-                                        <th scope="col">Diskon</th>
-                                        <th scope="col">Total harga</th>
-                                        <th scope="col">Tanggal Transaksi</th>
+                                        <th scope="col">Penulis</th>
+                                        <th scope="col">Penerbit</th>
+                                        <th scope="col">Harga</th>
+                                        <th scope="col">Stok</th>
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>
+                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create-transaction">Transaksi Buku</button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <div class="text-center">
+                                <i>Tekan tombol "Transaksi Buku" agar diarahkan ke formulir transaksi</i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -66,10 +61,12 @@
         </aside>
     </div>
 
+    @include('Kasir._create_transaction')
+
     @include('Template.script')
     <script>
         $(document).ready(function() {
-            $('#table').dataTable();
+            $('table').dataTable();
         } );
     </script>
 </body>

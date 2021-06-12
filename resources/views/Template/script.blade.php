@@ -1,4 +1,6 @@
 <script src="{{asset('adminLTE/plugins/jquery/jquery.min.js')}}"></script>
+<!-- DataTables -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
