@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDistributorsTable extends Migration
+class TblPasok extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateDistributorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('distributors', function (Blueprint $table) {
-            $table->id('id_distributor');
-            $table->string('nama_distributor', 100);
-            $table->string('alamat');
-            $table->string('telepon', 12);
+        Schema::create('tbl_pasok', function (Blueprint $table) {
+            $table->id('id_pasok');
+            $table->foreignId('id_distributor');
+            $table->uuid('id_buku');
+            $table->integer('jumlah');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateDistributorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('distributors');
+        Schema::dropIfExists('tbl_pasok');
     }
 }
