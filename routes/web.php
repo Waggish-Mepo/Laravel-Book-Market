@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function
     Route::patch('/updatePw/{id_Login}', [LoginController::class, 'updatePw'])->name('updatePw');
 
 });
+
 //Kasir
 Route::group(['middleware' => ['auth','ceklevel:kasir']], function(){
     Route::prefix('penjualan')->group(function () {
