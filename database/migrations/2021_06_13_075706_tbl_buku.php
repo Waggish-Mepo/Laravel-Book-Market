@@ -14,7 +14,7 @@ class TblBuku extends Migration
     public function up()
     {
         Schema::create('tbl_buku', function (Blueprint $table) {
-            $table->uuid('id_buku')->primary();
+            $table->id('id_buku')->autoIncrement();
             $table->string('judul');
             $table->string('noisbn');
             $table->string('penulis');
