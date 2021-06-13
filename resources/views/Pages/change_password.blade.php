@@ -31,24 +31,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <h3>Ganti Password</h3>
             </div>
           
-            <form action="{{url('updatePw')}}" method="post">
+            <form action="{{route('updatePw')}}" id="change_password_form" method="post">
                 @method('PATCH')
-                {{csrf_field()}}
+                @csrf
                 <div class="form-group">
-                    <h6>Password lama</h6>
-                    <input type="text" id="old_password" name="old_password" class="form-control">
+                    <label for="old_password">Old Password</label>
+                    <input type="password" name="old_password" class="form-control" id="old_password" >
+                
+                    @if($errors->any('old_password'))
+                    <span class="text-danger">{{$errors->first('old_password')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
-                    <h6>Password Baru</h6>
-                    <input type="text" id="new_password" name="new_password" class="form-control">
+                    <label for="password">New Password</label>
+                    <input type="password" name="new_password" class="form-control" id="new_password" >
+                    @if($errors->any('new_password'))
+                    <span class="text-danger">{{$errors->first('new_password')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
-                    <h6>Confirm Password</h6>
-                    <input type="text" id="confirm_password" name="confirm_password" class="form-control">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" class="form-control" id="confirm_password" >
+                    @if($errors->any('confirm_password'))
+                    <span class="text-danger">{{$errors->first('confirm_password')}}</span>
+                    @endif
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Ubah Password</button>
-                </div>
+
+                <button type="submit" class="btn btn-primary">Update Password</button>
             </form>
           
         </div>
