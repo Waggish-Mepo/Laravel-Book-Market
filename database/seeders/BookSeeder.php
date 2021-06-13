@@ -21,7 +21,7 @@ class BookSeeder extends Seeder
 
         for ($i = 1; $i <= 10; $i++) {
             DB::table('tbl_buku')->insert([
-                'id_buku' => 'BK'.$faker->unique()->randomNumber,
+                'id_buku' => $faker->unique()->numerify('BK#######'),
                 'judul' => $faker->word,
                 'noisbn' => $faker->isbn13,
                 'penulis' => $faker->name,
