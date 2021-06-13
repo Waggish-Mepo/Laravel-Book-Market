@@ -33,12 +33,20 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //Grup
 Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     Route::get('/pageInputBuku', [HomeController::class, 'pageInputBuku'])->name('pageInputBuku');
+
+    //Distributor
     Route::get('/pageInputDistributor', [DistributorController::class, 'pageInputDistributor'])->name('pageInputDistributor');
     Route::get('/createDistributor', [DistributorController::class, 'createDistributor'])->name('createDistributor');
     Route::post('/simpanDistributor', [DistributorController::class, 'simpanDistributor'])->name('simpanDistributor');
     Route::get('/editDistributor/{id_distributor}', [DistributorController::class, 'editDistributor'])->name('editDistributor');
+    Route::patch('/updateDistributor/{id_distributor}', [DistributorController::class, 'updateDistributor'])->name('updateDistributor');
+    Route::get('/deleteDistributor/{id_distributor}', [DistributorController::class, 'deleteDistributor'])->name('deleteDistributor');
 });
 
-Route::group(['middleware' => ['auth','ceklevel:admin,kasir']], function(){
+Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function(){
     Route::get('/home', [HomeController::class, 'index'])->name('index');
+
+    //Ganti Password
+    Route::get('/changePw', [LoginController::class, 'changePw'])->name('changePw');
+    Route::patch('/updatePw/{id_Login}', [LoginController::class, 'updatePw'])->name('updatePw');
 });

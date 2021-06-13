@@ -63,6 +63,14 @@
             </ul>
           </li>
           <li class="nav-item">
+            <a href="{{route('changePw')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Ganti Password
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{route('logout')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>

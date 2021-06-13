@@ -35,4 +35,22 @@ class DistributorController extends Controller
         return view('Pages.edit_distributor', compact('dist'));
     }
 
+    public function updateDistributor(Request $request, $id_distributor){
+        $dist = distributor::where('id_distributor', $id_distributor);
+        $dist->update([
+            'nama_distributor' => $request->nama,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+        ]);
+
+        return redirect('pageInputDistributor')->with('toast_success', 'Data Berhasil Disimpan');
+    }
+
+    public function deleteDistributor($id_distributor){
+        $dist = distributor::where('id_distributor', $id_distributor);
+        $dist->delete();
+
+        return back()->with('info', 'Data Berhasil Dihapus');
+    }
+
 }

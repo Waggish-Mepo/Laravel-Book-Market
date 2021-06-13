@@ -28,26 +28,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="card card-primary card-outline mt-3">
         <div class="card-body">
             <div class="card-body mb-3">
-                <h3>Edit Data Distributor</h3>
+                <h3>Ganti Password</h3>
             </div>
           
-            <form action="{{url('updateDistributor', $dist->id_distributor)}}" method="post">
+            <form action="#" method="post">
                 @method('PATCH')
                 {{csrf_field()}}
                 <div class="form-group">
-                    <h6>Nama Distributor</h6>
-                    <input type="text" id="nama" name="nama" class="form-control" value="{{ $dist->nama_distributor }}">
+                    <h6>Email</h6>
+                    <input type="text" id="email" name="email" class="form-control">
                 </div>
                 <div class="form-group">
-                    <h6>Alamat</h6>
-                    <textarea name="alamat" id="alamat" class="form-control"> {{ $dist->alamat }} </textarea>
+                    <h6>Password lama</h6>
+                    <input type="text" id="passwordOld" name="passwordOld" class="form-control">
                 </div>
                 <div class="form-group">
-                    <h6>Telepon</h6>
-                    <input type="text" id="telepon" name="telepon" class="form-control" value="{{ $dist->telepon }}">
+                    <h6>Password Baru</h6>
+                    <input type="text" id="passwordNew" name="passwordNew" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Ubah Data</button>
+                    <button type="submit" class="btn btn-primary">Ubah Password</button>
                 </div>
             </form>
           

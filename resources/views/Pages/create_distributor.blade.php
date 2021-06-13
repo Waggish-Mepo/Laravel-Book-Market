@@ -25,9 +25,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
 
-      <div class="card mt-3">
+      <div class="card card-primary card-outline mt-3">
         <div class="card-body">
-            <div class="card-header mb-3">
+            <div class="card-body mb-3">
                 <h3>Tambah Data Distributor</h3>
             </div>
           
