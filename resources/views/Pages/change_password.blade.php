@@ -31,20 +31,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <h3>Ganti Password</h3>
             </div>
           
-            <form action="#" method="post">
+            <form action="{{url('updatePw')}}" method="post">
                 @method('PATCH')
                 {{csrf_field()}}
                 <div class="form-group">
-                    <h6>Email</h6>
-                    <input type="text" id="email" name="email" class="form-control">
-                </div>
-                <div class="form-group">
                     <h6>Password lama</h6>
-                    <input type="text" id="passwordOld" name="passwordOld" class="form-control">
+                    <input type="text" id="old_password" name="old_password" class="form-control">
                 </div>
                 <div class="form-group">
                     <h6>Password Baru</h6>
-                    <input type="text" id="passwordNew" name="passwordNew" class="form-control">
+                    <input type="text" id="new_password" name="new_password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h6>Confirm Password</h6>
+                    <input type="text" id="confirm_password" name="confirm_password" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Ubah Password</button>

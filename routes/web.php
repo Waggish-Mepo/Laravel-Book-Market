@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\DistributorController;
+use App\Http\Controllers\PasswordController;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -54,8 +55,8 @@ Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function
     Route::get('/home', [HomeController::class, 'index'])->name('index');
 
     //Ganti Password
-    Route::get('/changePw', [LoginController::class, 'changePw'])->name('changePw');
-    Route::patch('/updatePw/{id_Login}', [LoginController::class, 'updatePw'])->name('updatePw');
+    Route::get('/changePw', [PasswordController::class, 'changePw'])->name('changePw');
+    Route::patch('/updatePw', [PasswordController::class, 'updatePw'])->name('updatePw');
 
 });
 //Kasir

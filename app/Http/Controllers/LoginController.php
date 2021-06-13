@@ -19,12 +19,4 @@ class LoginController extends Controller
         return redirect('login');
     }
 
-    public function changePw(){
-        return view('Pages.change_password');
-    }
-
-    public function updatePw(Request $request){
-    
-    }
-
 }
