@@ -39,6 +39,7 @@
                   <p>Dashboard</p>
                 </a>
               </li>
+              <hr>
               @if(auth()->user()->level=="admin")
 
               <li class="nav-item">
@@ -60,8 +61,31 @@
                 </a>
               </li>
               @endif
+
+              @if(auth()->user()->level=="kasir")
+              <li class="nav-item">
+                <a href="{{route('penjualan')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Penjualan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('transaksi-buku')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Transaksi Penjualan</p>
+                </a>
+              </li>
+              <hr>
+              <li class="nav-item">
+                <a href="{{route('faktur')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Faktur</p>
+                </a>
+              </li>
+              @endif
             </ul>
           </li>
+          <hr>
           <li class="nav-item">
             <a href="{{route('changePw')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
