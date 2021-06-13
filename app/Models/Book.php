@@ -13,3 +13,12 @@ class Book extends Model
         'judul', 'noisbn', 'penulis', 'penerbit', 'tahun', 'stok', 'harga_pokok', 'harga_jual', 'ppn', 'diskon', 'created_at', 'updated_at'
     ];
 }
+
+class BooksSale extends Model
+{
+    protected $table = "tbl_buku";
+    protected $primarykey = "id_buku";
+    protected $fillable = [
+        ''
+    ];
+}

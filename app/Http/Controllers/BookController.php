@@ -14,5 +14,11 @@ class BookController extends Controller
         return view('Pages.input_buku', compact('books'));
     }
 
+    public function pageBookSelfs(){
+        $books = Book::all();
+
+        return view('kasir.books', compact('books'));
+    }
+
 
 }

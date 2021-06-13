@@ -71,5 +71,9 @@ Route::group(['middleware' => ['auth','ceklevel:kasir']], function(){
 
         //Cetak Struk ?
     });
+
+    Route::prefix('data-buku')->group(function (){
+        Route::get('/', [BookController::class, 'pageBookSelfs'])->name('data-buku');
+    });
 });
 
