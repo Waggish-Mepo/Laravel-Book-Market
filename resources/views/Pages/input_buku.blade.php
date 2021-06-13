@@ -24,7 +24,89 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <h1>halaman 1</h1>
+
+      <div class="card card-primary card-outline mt-3">
+        <div class="card-body">
+            <div class="card-body mb-3">
+                <h3>Form Buku</h3>
+            </div>
+
+          
+            <form action="" method="post">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <h6>Judul Buku</h6>
+                    <input type="text" id="Judul" name="Judul" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <h6>No ISBN</h6>
+                    <input type="text" id="no_isbn" name="no_isbn" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <h6>Penulis</h6>
+                    <input type="text" id="Penulis" name="Penulis" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h6>Penerbit</h6>
+                    <input type="text" id="penerbit" name="penerbit" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h6>Tahun Terbit</h6>
+                    <input type="text" id="tahun_terbit" name="tahun_terbit" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h6>Harga Pokok</h6>
+                    <input type="text" id="harga_pokok" name="harga_pokok" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h6>Harga Jual</h6>
+                    <input type="text" id="harga_jual" name="harga_jual" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Simpan Data</button>
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="card-body mt-3">
+
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Kode Buku</th>
+                    <th scope="col">judul</th>
+                    <th scope="col">No ISBN</th>
+                    <th scope="col">Penulis</th>
+                    <th scope="col">Penerbit</th>
+                    <th scope="col">Tahun</th>
+                    <th scope="col">Harga Pokok</th>
+                    <th scope="col">Harga Jual</th>
+                    <th scope="col">Diskon</th>
+                    <th scope="col">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                @foreach($books as $book)
+                  <tr>
+                    <td>{{$book->id_buku}}</td>
+                    <td>{{$book->judul}}</td>
+                    <td>{{$book->noisbn}}</td>
+                    <td>{{$book->penulis}}</td>
+                    <td>{{$book->penerbit}}</td>
+                    <td>{{$book->tahun}}</td>
+                    <td>{{$book->harga_pokok}}</td>
+                    <td>{{$book->harga_jual}}</td>
+                    <td>{{$book->diskon}}</td>
+                    <td><a href="{{url('editDistributor',$item->id_distributor)}}"><i class="far fa-edit"></i></a> | <a href="{{url('deleteDistributor',$item->id_distributor)}}"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
+                  </tr>
+                @endforeach
+                  
+                </tbody>
+              </table>
+        </div>
+        
+      </div>
         
       </div><!-- /.container-fluid -->
     </div>
@@ -44,6 +126,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
   <!-- /.control-sidebar -->
 
+
 </div>
 <!-- ./wrapper -->
 
@@ -51,5 +134,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- jQuery -->
   @include('Template.script')
+  
+  @include('sweetalert::alert')
 </body>
 </html>

@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="card card-primary card-outline mt-3">
         <div class="card-body">
             <div class="card-body mb-3">
-                <h3>Ganti Password</h3>
+                <h3>Form Distributor</h3>
             </div>
 
           <a href="{{route('createDistributor')}}" class="btn btn-success float-right mb-3">Tambah Data</a>

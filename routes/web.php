@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\BookController;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -44,7 +45,8 @@ Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function
 
 //Admin
 Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
-    Route::get('/pageInputBuku', [HomeController::class, 'pageInputBuku'])->name('pageInputBuku');
+    //Book
+    Route::get('/pageInputBuku', [BookController::class, 'pageInputBuku'])->name('pageInputBuku');
 
     //Distributor
     Route::get('/pageInputDistributor', [DistributorController::class, 'pageInputDistributor'])->name('pageInputDistributor');
