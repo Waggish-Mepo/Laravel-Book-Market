@@ -34,8 +34,12 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //Grup
 //Signed In User
-Route::group(['middleware' => ['auth','ceklevel:admin,kasir']], function(){
+Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function(){
     Route::get('/home', [HomeController::class, 'index'])->name('index');
+
+    //Ganti Password
+    Route::get('/changePw', [PasswordController::class, 'changePw'])->name('changePw');
+    Route::patch('/updatePw', [PasswordController::class, 'updatePw'])->name('updatePw');
 });
 
 //Admin
@@ -49,15 +53,6 @@ Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     Route::get('/editDistributor/{id_distributor}', [DistributorController::class, 'editDistributor'])->name('editDistributor');
     Route::patch('/updateDistributor/{id_distributor}', [DistributorController::class, 'updateDistributor'])->name('updateDistributor');
     Route::get('/deleteDistributor/{id_distributor}', [DistributorController::class, 'deleteDistributor'])->name('deleteDistributor');
-});
-
-Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function(){
-    Route::get('/home', [HomeController::class, 'index'])->name('index');
-
-    //Ganti Password
-    Route::get('/changePw', [PasswordController::class, 'changePw'])->name('changePw');
-    Route::patch('/updatePw', [PasswordController::class, 'updatePw'])->name('updatePw');
-
 });
 
 //Kasir
