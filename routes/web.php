@@ -47,6 +47,11 @@ Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function
 Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     //Book
     Route::get('/pageInputBuku', [BookController::class, 'pageInputBuku'])->name('pageInputBuku');
+    Route::post('/simpanBuku', [BookController::class, 'simpanBuku'])->name('simpanBuku');
+    Route::get('/editBuku/{id_buku}', [BookController::class, 'editBuku'])->name('editBuku');
+    Route::patch('/updateBuku/{id_buku}', [BookController::class, 'updateBuku'])->name('updateBuku');
+    Route::get('/deleteBuku/{id_buku}', [BookController::class, 'deleteBuku'])->name('deleteBuku');
+
 
     //Distributor
     Route::get('/pageInputDistributor', [DistributorController::class, 'pageInputDistributor'])->name('pageInputDistributor');
@@ -73,6 +78,10 @@ Route::group(['middleware' => ['auth','ceklevel:kasir']], function(){
         Route::get('/', [KasirController::class, 'invoice'])->name('faktur');
 
         //Cetak Struk ?
+    });
+
+    Route::prefix('data-buku')->group(function (){
+        Route::get('/', [BookController::class, 'pageBookSelfs'])->name('data-buku');
     });
 });
 

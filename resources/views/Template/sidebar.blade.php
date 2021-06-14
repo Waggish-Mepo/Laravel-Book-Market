@@ -82,6 +82,12 @@
                   <p>Faktur</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('data-buku')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Buku</p>
+                </a>
+              </li>
               @endif
             </ul>
           </li>
