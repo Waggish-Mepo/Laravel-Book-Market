@@ -31,16 +31,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    @foreach($books as $book)
+                                    <tr id="book-{{$book->id_buku}}">
                                         <td>
-                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-create-transaction">Transaksi Buku</button>
+                                            {{$book->judul}}
+                                        </td>
+                                        <td>
+                                            {{$book->penulis}}
+                                            </td>
+                                        <td>
+                                            {{$book->penerbit}}
+                                        </td>
+                                        <td>
+                                            {{$book->harga_pokok}}
+                                        </td>
+                                        <td>
+                                            {{$book->stok}}
+                                        </td>
+                                        <td>
+                                            <a href="{{route('view-transaction', $book->id_buku)}}" class="btn btn-success">Transaksi Buku</a>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 
@@ -61,13 +73,13 @@
         </aside>
     </div>
 
-    @include('Kasir._create_transaction')
-
     @include('Template.script')
+    @include('sweetalert::alert')
+
     <script>
         $(document).ready(function() {
-            $('table').dataTable();
-        } );
+            $('#table').dataTable();
+        });
     </script>
 </body>
 
