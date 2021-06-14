@@ -25,10 +25,10 @@ class BookController extends Controller
             'penulis' => $request->penulis,
             'penerbit' => $request->penerbit,
             'tahun' => $request->tahun,
-            'stok' => 0,
+            'stok' => Book::DEFAULT_STOCK,
             'harga_pokok' => $request->harga_pokok,
             'harga_jual' => $request->harga_jual,
-            'ppn' => 10,
+            'ppn' => Book::TAX,
             'diskon' => $request->diskon,
         ]);
 
