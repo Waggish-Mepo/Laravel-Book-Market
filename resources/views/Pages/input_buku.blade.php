@@ -32,19 +32,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
           
-            <form action="" method="post">
+            <form action="{{url('simpanBuku')}}" method="post">
                 {{csrf_field()}}
                 <div class="form-group">
                     <h6>Judul Buku</h6>
-                    <input type="text" id="Judul" name="Judul" class="form-control" >
+                    <input type="text" id="judul" name="judul" class="form-control" >
                 </div>
                 <div class="form-group">
                     <h6>No ISBN</h6>
-                    <input type="text" id="no_isbn" name="no_isbn" class="form-control" >
+                    <input type="text" id="noisbn" name="noisbn" class="form-control" >
                 </div>
                 <div class="form-group">
                     <h6>Penulis</h6>
-                    <input type="text" id="Penulis" name="Penulis" class="form-control">
+                    <input type="text" id="penulis" name="penulis" class="form-control">
                 </div>
                 <div class="form-group">
                     <h6>Penerbit</h6>
@@ -52,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="form-group">
                     <h6>Tahun Terbit</h6>
-                    <input type="text" id="tahun_terbit" name="tahun_terbit" class="form-control">
+                    <input type="text" id="tahun" name="tahun" class="form-control">
                 </div>
                 <div class="form-group">
                     <h6>Harga Pokok</h6>
@@ -61,6 +61,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="form-group">
                     <h6>Harga Jual</h6>
                     <input type="text" id="harga_jual" name="harga_jual" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h6>Diskon</h6>
+                    <input type="text" id="diskon" name="diskon" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Simpan Data</button>
@@ -98,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>{{$book->harga_pokok}}</td>
                     <td>{{$book->harga_jual}}</td>
                     <td>{{$book->diskon}}</td>
-                    <td><a href="{{url('editDistributor',$item->id_distributor)}}"><i class="far fa-edit"></i></a> | <a href="{{url('deleteDistributor',$item->id_distributor)}}"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
+                    <td><a href="#"><i class="far fa-edit"></i></a> | <a href="#"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
                   </tr>
                 @endforeach
                   

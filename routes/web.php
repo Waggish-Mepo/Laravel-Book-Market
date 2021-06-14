@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function
 Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     //Book
     Route::get('/pageInputBuku', [BookController::class, 'pageInputBuku'])->name('pageInputBuku');
+    Route::post('/simpanBuku', [BookController::class, 'simpanBuku'])->name('simpanBuku');
+
 
     //Distributor
     Route::get('/pageInputDistributor', [DistributorController::class, 'pageInputDistributor'])->name('pageInputDistributor');

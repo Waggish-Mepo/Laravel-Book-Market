@@ -21,8 +21,8 @@ class TblBuku extends Migration
             $table->string('penerbit');
             $table->unsignedInteger('tahun');
             $table->unsignedInteger('stok');
-            $table->unsignedInteger('harga_pokok');
-            $table->unsignedInteger('harga_jual');
+            $table->unsignedBigInteger('harga_pokok');
+            $table->unsignedBigInteger('harga_jual');
             $table->unsignedInteger('ppn');
             $table->unsignedInteger('diskon');
             $table->timestamps();
