@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+    public const TAX = 10;
+    public const DEFAULT_STOCK = 0;
+
     protected $table = "tbl_buku";
     protected $primarykey = "id_buku";
     protected $fillable = [

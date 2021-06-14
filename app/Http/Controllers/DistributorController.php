@@ -30,13 +30,13 @@ class DistributorController extends Controller
 
     public function editDistributor($id_distributor){
 
-        $dist = distributor::where('id_distributor', $id_distributor)->first();
+        $dist = distributor::find($id_distributor);
         // dd($dist);
         return view('Pages.edit_distributor', compact('dist'));
     }
 
     public function updateDistributor(Request $request, $id_distributor){
-        $dist = distributor::where('id_distributor', $id_distributor);
+        $dist = distributor::find($id_distributor);
         $dist->update([
             'nama_distributor' => $request->nama,
             'alamat' => $request->alamat,
@@ -47,7 +47,7 @@ class DistributorController extends Controller
     }
 
     public function deleteDistributor($id_distributor){
-        $dist = distributor::where('id_distributor', $id_distributor);
+        $dist = distributor::find($id_distributor);
         $dist->delete();
 
         return back()->with('info', 'Data Berhasil Dihapus');
