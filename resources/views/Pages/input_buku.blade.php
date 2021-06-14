@@ -102,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>{{$book->harga_pokok}}</td>
                     <td>{{$book->harga_jual}}</td>
                     <td>{{$book->diskon}}</td>
-                    <td><a href="#"><i class="far fa-edit"></i></a> | <a href="#"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
+                    <td><a href="{{url('editBuku',$book->id_buku)}}"><i class="far fa-edit"></i></a> | <a href="{{url('deleteBuku',$book->id_buku)}}"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
                   </tr>
                 @endforeach
                   
@@ -140,5 +140,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   @include('Template.script')
   
   @include('sweetalert::alert')
+  <script>
+    $(document).ready(function() {
+            $('table').dataTable();
+        } );
+  </script>
 </body>
 </html>
