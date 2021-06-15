@@ -71,8 +71,9 @@ Route::group(['middleware' => ['auth','ceklevel:kasir']], function(){
 
         Route::get('/transaksi-buku', [KasirController::class, 'transaction'])->name('transaksi-buku');
         Route::get('/transaksi-buku/{bookId}', [KasirController::class, 'viewTransaction'])->name('view-transaction');
-        Route::post('/transaksi-buku/{bookId}/create', [KasirController::class, 'createTempTransaction'])->name('create-temp-transaction');   
-        Route::post('/transaksi-buku/{bookId}/create', [KasirController::class, 'createTransaction'])->name('create-transaction');   
+        Route::post('/transaksi-buku/{bookId}/', [KasirController::class, 'createTempTransaction'])->name('create-temp-transaction');   
+        Route::post('/transaksi-buku/{bookId}/create', [KasirController::class, 'createTransaction'])->name('create-transaction'); 
+        Route::get('/transaksi-buku/print/{receipt}', [KasirController::class, 'printTransaction'])->name('print-transaction'); 
     });
 
     Route::prefix('faktur')->group(function () {
