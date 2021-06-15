@@ -60,6 +60,15 @@
                   <p>Input Pasok Buku</p>
                 </a>
               </li>
+              
+              <hr>
+
+              <li class="nav-item">
+                <a href="{{route('lapBukuSemua')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Semua Data Buku</p>
+                </a>
+              </li>
               @endif
 
               @if(auth()->user()->level=="kasir")

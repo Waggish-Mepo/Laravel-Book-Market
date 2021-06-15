@@ -51,6 +51,8 @@ Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     Route::get('/editBuku/{id_buku}', [BookController::class, 'editBuku'])->name('editBuku');
     Route::patch('/updateBuku/{id_buku}', [BookController::class, 'updateBuku'])->name('updateBuku');
     Route::get('/deleteBuku/{id_buku}', [BookController::class, 'deleteBuku'])->name('deleteBuku');
+    Route::get('/lapBukuSemua', [BookController::class, 'lapBukuSemua'])->name('lapBukuSemua');
+    Route::get('/cetakBuku', [BookController::class, 'cetakBuku'])->name('cetakBuku');
 
 
     //Distributor

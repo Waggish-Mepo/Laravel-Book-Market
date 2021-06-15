@@ -35,13 +35,6 @@ class BookController extends Controller
         return back()->with('toast_success', 'Data Berhasil Disimpan');
     }
 
-
-    public function pageBookSelfs(){
-        $books = Book::all();
-
-        return view('kasir.books', compact('books'));
-    }
-
     public function editBuku($id_buku){
 
         $book = Book::where('id_buku', $id_buku)->first();
@@ -75,6 +68,26 @@ class BookController extends Controller
         $book->delete();
 
         return back()->with('info', 'Data Berhasil Dihapus');
+    }
+
+    public function lapBukuSemua(){
+        $books = Book::all();
+
+        return view('Laporan.lap_semuaBuku', compact('books'));
+    }
+
+    public function cetakBuku(){
+        $books = Book::all();
+
+        return view('Laporan.cetak_buku', compact('books'));
+    }
+
+
+    
+    public function pageBookSelfs(){
+        $books = Book::all();
+
+        return view('kasir.books', compact('books'));
     }
 
 
