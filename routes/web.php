@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     Route::get('/deleteBuku/{id_buku}', [BookController::class, 'deleteBuku'])->name('deleteBuku');
     Route::get('/lapBukuSemua', [BookController::class, 'lapBukuSemua'])->name('lapBukuSemua');
     Route::get('/cetakBuku', [BookController::class, 'cetakBuku'])->name('cetakBuku');
+    Route::get('/bukuExport', [BookController::class, 'bukuExport'])->name('bukuExport');
 
 
     //Distributor

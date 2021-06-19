@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BukuExport;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Faker\Factory as Faker;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookController extends Controller
 {
@@ -80,6 +82,10 @@ class BookController extends Controller
         $books = Book::all();
 
         return view('Laporan.cetak_buku', compact('books'));
+    }
+
+    public function bukuExport(){
+        return Excel::download(new BukuExport, 'buku.xlsx');
     }
 
 
