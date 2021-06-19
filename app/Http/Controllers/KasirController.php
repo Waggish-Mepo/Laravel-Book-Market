@@ -88,7 +88,12 @@ class KasirController extends Controller
     
     public function transactions()
     {
-        return view('Kasir.transactions');
+        $transactions = Transaction::all();
+        foreach ($transactions as $transaction) {
+            $transaction['book'] = $transaction->Book;
+        }
+
+        return view('Kasir.transactions', compact('transactions'));
     }
 
     public function invoice()

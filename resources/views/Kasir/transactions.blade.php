@@ -27,7 +27,6 @@
                             <table id="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No</th>
                                         <th scope="col">No Faktur</th>
                                         <th scope="col">Judul Buku</th>
                                         <th scope="col">Jumlah Beli</th>
@@ -39,17 +38,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($transactions as $tr)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{$tr->id_penjualan}}</td>
+                                        <td>{{$tr->book->judul}}</td>
+                                        <td>{{$tr->jumlah_beli}}</td>
+                                        <td>{{$tr->book->harga_pokok}}</td>
+                                        <td>{{$tr->book->ppn}}%</td>
+                                        <td>{{$tr->book->diskon}}%</td>
+                                        <td>{{intval(($tr->total_harga + ($tr->total_harga * $tr->book->ppn / 100)) - ($tr->total_harga * $tr->book->diskon / 100)) }}</td>
+                                        <td>{{$tr->tanggal}}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
