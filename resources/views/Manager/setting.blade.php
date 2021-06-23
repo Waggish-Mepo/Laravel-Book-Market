@@ -24,17 +24,17 @@
                         </div>
 
                         <div class="card-body">
-                            <form action="{{ url('/manager/update-profile') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('update-profile') }}" method="POST" enctype="multipart/form-data">
                                 @method('PATCH')
                                 @csrf
-                                <input type="hidden" name="id-setting" value="{{$profile->id_setting}}">
+                                <input type="hidden" name="id_setting" value="{{$profile->id_setting}}">
                                 <div class="col-5">
                                     <div class="form-group">
                                         <label for="name" class="form-label">Nama Perusahaan</label>
                                         <input type="text" name="name" id="name" class="form-control" value="{{$profile->nama_perusahaan}}" required>
                                     </div>
                                 </div>
-                                <div class="col-8 mt-3">
+                                <div class="col-5 mt-3">
                                     <div class="form-group">
                                         <label for="address" class="form-label">Alamat</label>
                                         <textarea name="address" id="address" cols="30" rows="3" class="form-control" required>{!!$profile->alamat!!}</textarea>

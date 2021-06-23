@@ -41,7 +41,7 @@ class BookController extends Controller
     public function editBuku($id_buku){
 
         $book = Book::where('id_buku', $id_buku)->first();
-        // dd($book);
+
         return view('Admin.edit_buku', compact('book'));
     }
 

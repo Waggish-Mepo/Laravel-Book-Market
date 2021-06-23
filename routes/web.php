@@ -88,4 +88,15 @@ Route::group(['middleware' => ['auth','ceklevel:kasir']], function(){
 
 Route::group(['middleware' => ['auth','ceklevel:manager']], function(){
     Route::get('/ubah-profile', [ManagerController::class, 'setting'])->name('profile');
+    Route::patch('/ubah-profile', [ManagerController::class, 'updateProfile'])->name('update-profile');
+
+    Route::get('/penjualan', [KasirController::class, 'transactions'])->name('penjualan');
+    Route::get('/faktur', [KasirController::class, 'invoice'])->name('faktur');
+
+    Route::get('/buku', [BookController::class, 'lapBukuSemua'])->name('lapBukuSemua');
+    Route::get('/buku/cetak', [BookController::class, 'cetakBuku'])->name('cetakBuku');
+    Route::get('/buku/export', [BookController::class, 'bukuExport'])->name('bukuExport');
+
+    Route::get('/terlaris', [BookController::class, 'bukuTerlaris'])->name('bukuTerlaris');
+    Route::get('/terlaris/export', [BookController::class, 'bukuTerlarisExport'])->name('bukuTerlarisExport');
 });

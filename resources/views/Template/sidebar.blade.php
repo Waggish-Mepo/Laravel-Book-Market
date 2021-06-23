@@ -79,6 +79,32 @@
 
               @if(auth()->user()->level=="manager")
               <li class="nav-item">
+                <a href="{{route('faktur')}}" class="nav-link">
+                  <i class="fa fa-receipt nav-icon"></i>
+                  <p>Faktur</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('penjualan')}}" class="nav-link">
+                  <i class="fa fa-shopping-cart nav-icon"></i>
+                  <p>Penjualan</p>
+                </a>
+              </li>
+              <hr>
+              <li class="nav-item">
+                <a href="{{route('lapBukuSemua')}}" class="nav-link">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>Semua Data Buku</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('bukuTerlaris')}}" class="nav-link">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>Buku Terlaris</p>
+                </a>
+              </li>
+              <hr>
+              <li class="nav-item">
                 <a href="{{route('profile')}}" class="nav-link">
                   <i class="fa fa-address-card nav-icon"></i>
                   <p>Ubah Profile</p>

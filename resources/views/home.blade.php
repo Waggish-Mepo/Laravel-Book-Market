@@ -24,11 +24,11 @@
     <div class="content">
       <div class="text-center">
             <div class="card card-primary card-outline">
-              <div class="card-header">
+              <div class="card-header bg-white">
                 <img src="{{ url('/images/'.$profile->logo) }}" alt="logo">
 
-                <h3 class="m-0">{{$profile->nama_perusahaan}}</h3>
-                <h5 class="card-text">{!!$profile->alamat!!}</h5>
+                <h3 class="mb-2">{{$profile->nama_perusahaan}}</h3>
+                <h5 class="mb-2 card-text">{!!$profile->alamat!!}</h5>
               </div>
             </div>
       </div>

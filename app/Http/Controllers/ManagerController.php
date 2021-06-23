@@ -18,7 +18,7 @@ class ManagerController extends Controller
 
     public function updateProfile(Request $request)
     {
-        $setting = Profile::find($request['id-setting']);
+        $setting = Profile::find($request->id_setting);
 
         $fileName = '';
         if($request->file('file'))
@@ -42,9 +42,9 @@ class ManagerController extends Controller
         $execute = $setting->save();
 
         if($execute){
-            return redirect()->back()->with('success', 'Data berhasil disimpan');
+            return redirect()->back()->with('toast_success', 'Data Berhasil Disimpan');
         } else {
-            return redirect()->back()->with('failed', 'Data gagal disimpan');
+            return redirect()->back()->with('toast_error', 'Data gagal disimpan');
         }
     }
 }
