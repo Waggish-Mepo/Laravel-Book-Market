@@ -62,7 +62,14 @@
                 <a href="{{url('buku/filter-pasok-buku')}}" class="nav-link">
                   <i class="fa fa-book nav-icon"></i>
                   <p>Filter Pasok</p>
-                </a></li>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('booksByWriterForm')}}" class="nav-link">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>Filter Buku</p>
+                </a>
+              </li>
 
               @endif
 

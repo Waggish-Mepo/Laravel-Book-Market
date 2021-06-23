@@ -227,20 +227,18 @@ class BookController extends Controller
         $user = Auth::user();
         $writers =  Book::get()->pluck('penulis');
 
-        return view('admin.data_buku._by_writer')
+        return view('Admin.buku_by_writer')
         ->with('user', $user)
         ->with('writers', $writers);
     }
 
     public function booksByWriter(Request $request)
     {
-        $userRole = Auth::user()->akses;
         $books = Book::where('penulis', $request->writer)->get();
         $writers =  Book::get()->pluck('penulis');
 
 
-        return view('admin.data_buku._by_writer_page')
-        ->with('userRole', $userRole)
+        return view('Admin.buku_by_writer_page')
         ->with('books', $books)
         ->with('currentWriter', $request->writer)
         ->with('writers', $writers);
