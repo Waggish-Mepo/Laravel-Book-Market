@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\DistributorController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BookController;
 use Illuminate\Routing\RouteGroup;
@@ -46,22 +47,28 @@ Route::group(['middleware' => ['auth','ceklevel:admin,kasir,manager']], function
 //Admin
 Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     //Book
-    Route::get('/pageInputBuku', [BookController::class, 'pageInputBuku'])->name('pageInputBuku');
-    Route::post('/simpanBuku', [BookController::class, 'simpanBuku'])->name('simpanBuku');
-    Route::get('/editBuku/{id_buku}', [BookController::class, 'editBuku'])->name('editBuku');
-    Route::patch('/updateBuku/{id_buku}', [BookController::class, 'updateBuku'])->name('updateBuku');
-    Route::get('/deleteBuku/{id_buku}', [BookController::class, 'deleteBuku'])->name('deleteBuku');
-    Route::get('/lapBukuSemua', [BookController::class, 'lapBukuSemua'])->name('lapBukuSemua');
-    Route::get('/cetakBuku', [BookController::class, 'cetakBuku'])->name('cetakBuku');
+    Route::prefix('buku')->group(function () {
+        Route::get('/input', [BookController::class, 'pageInputBuku'])->name('pageInputBuku');
+        Route::post('/input/create', [BookController::class, 'simpanBuku'])->name('simpanBuku');
+        Route::get('/{id_buku}/edit', [BookController::class, 'editBuku'])->name('editBuku');
+        Route::patch('/{id_buku}/update', [BookController::class, 'updateBuku'])->name('updateBuku');
+        Route::get('/{id_buku}/delete', [BookController::class, 'deleteBuku'])->name('deleteBuku');
+        Route::get('/', [BookController::class, 'lapBukuSemua'])->name('lapBukuSemua');
+        Route::get('/cetak', [BookController::class, 'cetakBuku'])->name('cetakBuku');
+        Route::get('/export', [BookController::class, 'bukuExport'])->name('bukuExport');
 
+        Route::get('/terlaris', [BookController::class, 'bukuTerlaris'])->name('bukuTerlaris');
+        Route::get('/terlaris/export', [BookController::class, 'bukuTerlarisExport'])->name('bukuTerlarisExport');
+    });
 
     //Distributor
-    Route::get('/pageInputDistributor', [DistributorController::class, 'pageInputDistributor'])->name('pageInputDistributor');
-    Route::get('/createDistributor', [DistributorController::class, 'createDistributor'])->name('createDistributor');
-    Route::post('/simpanDistributor', [DistributorController::class, 'simpanDistributor'])->name('simpanDistributor');
-    Route::get('/editDistributor/{id_distributor}', [DistributorController::class, 'editDistributor'])->name('editDistributor');
-    Route::patch('/updateDistributor/{id_distributor}', [DistributorController::class, 'updateDistributor'])->name('updateDistributor');
-    Route::get('/deleteDistributor/{id_distributor}', [DistributorController::class, 'deleteDistributor'])->name('deleteDistributor');
+    Route::prefix('distributor')->group(function () {
+        Route::get('/input', [DistributorController::class, 'pageInputDistributor'])->name('pageInputDistributor');
+        Route::post('/create', [DistributorController::class, 'simpanDistributor'])->name('simpanDistributor');
+        Route::get('/{id_distributor}/edit', [DistributorController::class, 'editDistributor'])->name('editDistributor');
+        Route::patch('/{id_distributor}/update', [DistributorController::class, 'updateDistributor'])->name('updateDistributor');
+        Route::get('/{id_distributor}/delete', [DistributorController::class, 'deleteDistributor'])->name('deleteDistributor');
+    });
 });
 
 //Kasir
@@ -73,17 +80,12 @@ Route::group(['middleware' => ['auth','ceklevel:kasir']], function(){
         Route::get('/transaksi-buku/{bookId}', [KasirController::class, 'viewTransaction'])->name('view-transaction');
         Route::post('/transaksi-buku/{bookId}/', [KasirController::class, 'createTempTransaction'])->name('create-temp-transaction');   
         Route::post('/transaksi-buku/{bookId}/create', [KasirController::class, 'createTransaction'])->name('create-transaction'); 
-        Route::get('/transaksi-buku/print/{receipt}', [KasirController::class, 'printTransaction'])->name('print-transaction'); 
     });
-
-    Route::prefix('faktur')->group(function () {
-        Route::get('/', [KasirController::class, 'invoice'])->name('faktur');
-
-        //Cetak Struk ?
-    });
-
-    Route::prefix('data-buku')->group(function (){
-        Route::get('/', [BookController::class, 'pageBookSelfs'])->name('data-buku');
-    });
+    
+    Route::get('/faktur', [KasirController::class, 'invoice'])->name('faktur');
+    Route::get('/print/{receipt}', [KasirController::class, 'printTransaction'])->name('print-transaction'); 
 });
 
+Route::group(['middleware' => ['auth','ceklevel:manager']], function(){
+    Route::get('/ubah-profile', [ManagerController::class, 'setting'])->name('profile');
+});

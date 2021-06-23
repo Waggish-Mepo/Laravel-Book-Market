@@ -3,8 +3,8 @@
         <tr>
             <td height="87" colspan="7" align="center">
                 <span><span>STRUK PENJUALAN</span><br />
-                    <strong>Toko Buku</strong></span><br />
-                <span><strong>Alamat : </strong>Alamat : Jl. Ketoprak Baso Siomay Mantap No.8</span>
+                    <strong>Toko Buku Mochi Mepo</strong></span><br />
+                <span><strong>Alamat : </strong>{{$profile->alamat}}</span>
             </td>
         </tr>
         <tr>

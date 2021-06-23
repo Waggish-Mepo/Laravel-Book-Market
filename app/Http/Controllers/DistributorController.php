@@ -11,11 +11,11 @@ class DistributorController extends Controller
     public function pageInputDistributor(){
 
         $dtDistributor = distributor::all();
-        return view('Pages.input_distributor', compact('dtDistributor'));
+        return view('Admin.input_distributor', compact('dtDistributor'));
     }
 
     public function createDistributor(){
-        return view('Pages.create_distributor');
+        return view('Admin.create_distributor');
     }
 
     public function simpanDistributor(Request $request){
@@ -31,8 +31,8 @@ class DistributorController extends Controller
     public function editDistributor($id_distributor){
 
         $dist = distributor::find($id_distributor);
-        // dd($dist);
-        return view('Pages.edit_distributor', compact('dist'));
+
+        return view('Admin.edit_distributor', compact('dist'));
     }
 
     public function updateDistributor(Request $request, $id_distributor){

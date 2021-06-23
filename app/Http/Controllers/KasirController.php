@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book as Book;
 use App\Models\Transaction as Transaction;
+use App\Models\Profile;
 use App\Models\TempTransaction as TempTransaction;
 use Carbon\Carbon;
 use Faker\Factory as Faker;
@@ -82,8 +83,9 @@ class KasirController extends Controller
     public function printTransaction(Request $request, $receipt){
         $receipt = Transaction::where('id_penjualan', $receipt)->first();
         $book = Book::where('id_buku', $receipt->id_buku)->first();
+        $profile = Profile::first();
 
-        return view('Kasir.printed_invoice', compact('receipt', 'book'));
+        return view('Kasir.printed_invoice', compact('receipt', 'book', 'profile'));
     }
     
     public function transactions()
@@ -98,6 +100,11 @@ class KasirController extends Controller
 
     public function invoice()
     {
-        return view('Kasir.invoice');
+        $transactions = Transaction::all();
+        foreach ($transactions as $transaction) {
+            $transaction['book'] = $transaction->Book;
+        }
+
+        return view('Kasir.invoice', compact('transactions'));
     }
 }

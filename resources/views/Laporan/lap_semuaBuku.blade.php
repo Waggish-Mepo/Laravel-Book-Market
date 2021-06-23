@@ -25,21 +25,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
 
-      <div class="card card-primary card-outline mt-3">
+      <div class="card mt-3">
         <div class="card-body">
-            <div class="card-body">
-                <h3>Form Buku</h3>
+            <div class="card-header mb-3">
+                <h3>Semua Data Buku</h3>
             </div>
         </div>
-       
+
         <div class="card-body">
           <a href="{{route('cetakBuku')}}" target="_blank" class="btn btn-success mb-3">Cetak</a>
-
+          <a href="{{route('bukuExport')}}" class="btn btn-danger mb-3">Export Excel</a>
             <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Kode Buku</th>
-                    <th scope="col">judul</th>
+                    <th scope="col">Judul</th>
                     <th scope="col">No ISBN</th>
                     <th scope="col">Penulis</th>
                     <th scope="col">Penerbit</th>

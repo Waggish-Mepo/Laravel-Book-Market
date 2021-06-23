@@ -2,22 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('home');
-    }
+        $profile = Profile::first();
 
-    public function pageInputBuku(){
-        return view('Pages.input_buku');
+        return view('home', compact('profile'));
     }
 
 }

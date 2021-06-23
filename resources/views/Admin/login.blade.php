@@ -18,12 +18,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
+  <div class="card card-md card-outline card-primary" style="width: 28rem;">
     <div class="card-header text-center">
-      <a href="#" class="h1">Toko Buku Akhir Zaman</a>
+      <a href="#" class="h1">Toko Buku Mochi Mepo</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Login dulu mas/mba</p>
 
       <form action="{{route('postlogin')}}" method="post">
         {{ csrf_field() }}
@@ -43,20 +43,8 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
+        <div class="col">
+          <button type="submit" class="btn btn-primary btn-block">Gas</button>
         </div>
       </form>
 
