@@ -33,13 +33,8 @@
                 </a>
               </li>
               <li class="nav-item">
-<<<<<<< HEAD
-                <a href="{{route('pageInputBuku')}}" class="nav-link">
-                  <i class="fa fa-book-medical nav-icon"></i>
-=======
                 <a href="{{route('indexInputPasokBuku')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
->>>>>>> master
                   <p>Input Pasok Buku</p>
                 </a>
               </li>
@@ -56,11 +51,19 @@
                 <a href="{{route('bukuTerlaris')}}" class="nav-link">
                   <i class="fa fa-book nav-icon"></i>
                   <p>Buku Terlaris</p>
+                </a></li>
+              <li class="nav-item">
                 <a href="{{route('indexPasokBuku')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lap Pasok Buku</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{url('buku/filter-pasok-buku')}}" class="nav-link">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>Filter Pasok</p>
+                </a></li>
+
               @endif
 
               @if(auth()->user()->level=="kasir")

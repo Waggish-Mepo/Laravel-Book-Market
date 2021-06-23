@@ -14,11 +14,8 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="card card-md card-outline card-primary" style="width: 28rem;">
-    <div class="card-header text-center">
-      <a href="#" class="h1">Toko Buku Mochi Mepo</a>
-    </div>
     <div class="card-body">
-      <p class="login-box-msg">Login dulu mas/mba</p>
+      <p class="login-box-msg">Silahkan Login</p>
 
       <form action="{{route('postlogin')}}" method="post">
         {{ csrf_field() }}

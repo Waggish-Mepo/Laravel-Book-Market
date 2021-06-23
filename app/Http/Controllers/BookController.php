@@ -162,7 +162,7 @@ class BookController extends Controller
             $dataSuply[$key]['book'] = $suply->book;
         }
         
-        return view('Pages.input_pasok_buku', compact('dataSuply', 'user', 'distributors', 'books'));
+        return view('Admin.input_pasok_buku', compact('dataSuply', 'user', 'distributors', 'books'));
     }
 
     public function inputPasokBuku(Request $request)
@@ -218,6 +218,59 @@ class BookController extends Controller
         $data = Suply::all();
 
         return view('Laporan.cetak_pasok', compact('data'));
+    }
+
+
+    // filter
+    public function booksByWriterForm()
+    {
+        $user = Auth::user();
+        $writers =  Book::get()->pluck('penulis');
+
+        return view('admin.data_buku._by_writer')
+        ->with('user', $user)
+        ->with('writers', $writers);
+    }
+
+    public function booksByWriter(Request $request)
+    {
+        $userRole = Auth::user()->akses;
+        $books = Book::where('penulis', $request->writer)->get();
+        $writers =  Book::get()->pluck('penulis');
+
+
+        return view('admin.data_buku._by_writer_page')
+        ->with('userRole', $userRole)
+        ->with('books', $books)
+        ->with('currentWriter', $request->writer)
+        ->with('writers', $writers);
+    }
+
+    public function indexFilterPasokBuku ()
+    {
+        $user = Auth::user();
+        $distributors = distributor::all();
+
+        return view('Admin.filter_pasok_buku', compact('user','distributors'));
+    }
+    
+    public function filterByDistributor (Request $req)
+    {
+        $suplys = Suply::all()->where('id_distributor', $req->distributor);
+        $distributor = Distributor::where('id_distributor', $req->distributor)->first();
+        $mytime = date("d/m/Y");
+        $dataSuply = [];
+        foreach($suplys as $suply){
+            $suply['distributor'] = $suply->distributor;
+            $suply['book'] = $suply->book;
+            array_push($dataSuply , $suply);
+        }
+        $countBook = 0;
+        foreach($dataSuply as $book){
+            $countBook += $book['book']['stok'];
+        }
+
+        return view('Admin.filter_form_pasok',compact('dataSuply','distributor','mytime','countBook'));
     }
 
 }
