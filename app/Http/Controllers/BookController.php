@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Exports\BukuExport;
 use App\Models\Book;
+use App\Models\distributor;
 use App\Exports\BookExport;
 use App\Exports\PopBookExport;
 use App\Models\Suply;
-use App\Models\distributor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Faker\Factory as Faker;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 
+
 class BookController extends Controller
 {
-    
+    //Buku
     public function pageInputBuku(){
         $books = Book::all();
 

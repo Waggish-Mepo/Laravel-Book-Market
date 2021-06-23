@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth','ceklevel:admin,manager']], function(){
         Route::get('/input-pasok-buku', [BookController::class, 'indexInputPasokBuku'])->name('indexInputPasokBuku');
         Route::post('/input-pasok-buku', [BookController::class, 'inputPasokBuku'])->name('inputPasokBuku');
         Route::get('/cetakPasok', [BookController::class, 'cetakPasok'])->name('cetakPasok');
+        
         Route::get('/filter-pasok-buku', [BookController::class, 'indexFilterPasokBuku'])->name('indexFilterPasokBuku');
         Route::post('/filter-pasok-buku', [BookController::class, 'filterByDistributor'])->name('filterByDistributor');
 
@@ -110,4 +111,10 @@ Route::group(['middleware' => ['auth','ceklevel:kasir']], function(){
 Route::group(['middleware' => ['auth','ceklevel:manager']], function(){
     Route::get('/ubah-profile', [ManagerController::class, 'setting'])->name('profile');
     Route::patch('/ubah-profile', [ManagerController::class, 'updateProfile'])->name('update-profile');
+
+    Route::get('add-user', function () {
+        return view('Admin.user');
+    })->name('add-user');
+
+    Route::post('add-user/create', [ManagerController::class, 'createUser'])->name('create-user');
 });

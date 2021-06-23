@@ -6,6 +6,7 @@ use App\Models\Book as Book;
 use App\Models\Transaction as Transaction;
 use App\Models\Profile;
 use App\Models\TempTransaction as TempTransaction;
+use App\Models\User;
 use Carbon\Carbon;
 use Faker\Factory as Faker;
 
@@ -83,9 +84,10 @@ class KasirController extends Controller
     public function printTransaction(Request $request, $receipt){
         $receipt = Transaction::where('id_penjualan', $receipt)->first();
         $book = Book::where('id_buku', $receipt->id_buku)->first();
+        $cashier = User::where('id_user', $receipt->id_kasir)->first();
         $profile = Profile::first();
 
-        return view('Kasir.printed_invoice', compact('receipt', 'book', 'profile'));
+        return view('Kasir.printed_invoice', compact('receipt', 'book', 'profile', 'cashier'));
     }
     
     public function transactions()

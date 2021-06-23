@@ -29,7 +29,7 @@ class PasswordController extends Controller
                 return back()->with('toast_success', 'Password successfully updated.');
                 
             }else{
-                return redirect()->back()->with('error','Old password does not matched.');
+                return redirect()->back()->with('toast_error','Old password does not matched.');
             }
     }
 }

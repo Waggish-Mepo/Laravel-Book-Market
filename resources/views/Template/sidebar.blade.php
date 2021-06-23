@@ -33,8 +33,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('indexInputPasokBuku')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+              <a href="{{route('indexInputPasokBuku')}}" class="nav-link">
+                  <i class="fa fa-book-medical nav-icon"></i>
                   <p>Input Pasok Buku</p>
                 </a>
               </li>
@@ -45,6 +45,12 @@
                 <a href="{{route('lapBukuSemua')}}" class="nav-link">
                   <i class="fa fa-book nav-icon"></i>
                   <p>Semua Data Buku</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('indexPasokBuku')}}" class="nav-link">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>Semua Pasok Buku</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -116,6 +122,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('indexPasokBuku')}}" class="nav-link">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>Semua Pasok Buku</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{route('bukuTerlaris')}}" class="nav-link">
                   <i class="fa fa-book nav-icon"></i>
                   <p>Buku Terlaris</p>
@@ -126,6 +138,12 @@
                 <a href="{{route('profile')}}" class="nav-link">
                   <i class="fa fa-address-card nav-icon"></i>
                   <p>Ubah Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('add-user')}}" class="nav-link">
+                  <i class="fa fa-user nav-icon"></i>
+                  <p>Tambah User</p>
                 </a>
               </li>
               @endif
