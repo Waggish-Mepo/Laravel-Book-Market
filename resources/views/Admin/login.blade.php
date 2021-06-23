@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="col">
-          <button type="submit" class="btn btn-primary btn-block">Gas</button>
+          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
         </div>
       </form>
 
