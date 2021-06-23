@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Supply;
+use App\Models\distributor;
 use App\Exports\BookExport;
 use App\Exports\PopBookExport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Faker\Factory as Faker;
 use Maatwebsite\Excel\Facades\Excel;
 
+use Carbon\Carbon;
+
 class BookController extends Controller
 {
-    
+    //Buku
     public function pageInputBuku(){
         $books = Book::all();
 
@@ -122,6 +127,98 @@ class BookController extends Controller
         }
 
         return view('Laporan.buku_terlaris')->with('books', $booksWithTransaction);
+    }
+
+    // Pasok
+    public function indexPasokBuku ()
+    {
+        $user = Auth::user();
+        $suplys = Supply::orderBy('tanggal', 'desc')->get();
+        $dataDates = $suplys->pluck('tanggal');
+        $dates = [];
+        foreach ($dataDates as $key => $arrDates) {
+            if(in_array($arrDates, $dates)){
+                continue;
+            }
+            $dates[$key] = $arrDates;
+        }
+        array_unique((array)$dates);
+
+        return view('Laporan.lap_pasok_buku', compact('user', 'dates'));
+    }
+
+    public function getPasok ()
+    {
+        $suplys = Supply::orderBy('tanggal', 'desc')->get();
+        $dataSuply = [];
+        foreach($suplys as $suply){
+            $suply['distributor'] = $suply->distributor;
+            $suply['book'] = $suply->book;
+            array_push($dataSuply , $suply);
+        }
+
+        return $dataSuply;
+    }
+
+    public function pasokByYear (Request $req)
+    {
+        $suplys = Supply::all();
+        $suplysByDate = $suplys->where('tanggal', $req->tanggal);
+        $dataSuply = [];
+
+        foreach($suplysByDate as $suply){
+            $suply['distributor'] = $suply->distributor;
+            $suply['book'] = $suply->book;
+            array_push($dataSuply , $suply);
+        }
+
+        return $dataSuply;
+    }
+
+    public function indexInputPasokBuku()
+    {
+        $user = Auth::user();
+        $books = Book::all();
+        $suplys = Supply::orderBy('tanggal', 'desc')->get();
+        $distributors = Distributor::all();
+        $dataSuply = [];
+        foreach($suplys as $key => $suply){
+            $dataSuply[$key] = $suply;
+            $dataSuply[$key]['distributor'] = $suply->distributor;
+            $dataSuply[$key]['book'] = $suply->book;
+        }
+
+        return view('Admin.input_pasok_buku', compact('dataSuply', 'user', 'distributors', 'books'));
+    }
+
+    public function inputPasokBuku(Request $request)
+    {
+        $book = Book::findOrFail($request->book_id);
+
+        $supply = new Supply;
+
+        $supply->id_distributor = $request->distributor_id;
+        $supply->id_buku = $request->book_id;
+        $supply->jumlah = $request->jumlah;
+        $supply->tanggal = $request->tanggal;
+
+        $supply->save();
+
+        $plusStok = $book->stok + $request->jumlah;
+
+        $book->update([
+            'stok' => $plusStok,
+        ]);
+
+        $book->save();
+
+        return back()->with('toast_success', 'Data Berhasil Ditambahkan');
+    }
+
+    public function cetakPasok(){
+        $data = Supply::all();
+
+        return view('Laporan.cetak_pasok', compact('data'));
     }
 
 }

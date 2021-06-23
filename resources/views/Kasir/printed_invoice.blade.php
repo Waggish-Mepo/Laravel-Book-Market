@@ -12,7 +12,7 @@
             <td colspan="3" align="right"> 07-03-2017</td>
         </tr>
         <tr>
-            <td colspan="7"><strong>Kasir :</strong> {{$receipt->kasir}}</td>
+            <td colspan="7"><strong>Kasir :</strong> {{$cashier->name}}</td>
         </tr>
         <tr>
             <th style="border: 1px solid black;" bgcolor="#F5F5F5">No</th>
