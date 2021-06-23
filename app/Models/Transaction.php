@@ -11,6 +11,7 @@ class Transaction extends Model
 {
     protected $table = "tbl_penjualan";
     protected $primarykey = "id_penjualan";
+    public $incrementing = false;
     protected $fillable = [
         'id_penjualan', 'id_buku', 'id_kasir', 'jumlah_beli', 'bayar', 'kembalian', 'total_harga', 'tanggal', 'created_at', 'updated_at'
     ];

@@ -55,7 +55,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('pageInputBuku')}}" class="nav-link">
+                <a href="{{route('indexInputPasokBuku')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Input Pasok Buku</p>
                 </a>
@@ -67,6 +67,12 @@
                 <a href="{{route('lapBukuSemua')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Semua Data Buku</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('indexPasokBuku')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lap Pasok Buku</p>
                 </a>
               </li>
               @endif

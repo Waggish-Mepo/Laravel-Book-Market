@@ -21,7 +21,7 @@ use Illuminate\Routing\RouteGroup;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 //Login
@@ -63,6 +63,14 @@ Route::group(['middleware' => ['auth','ceklevel:admin']], function(){
     Route::get('/editDistributor/{id_distributor}', [DistributorController::class, 'editDistributor'])->name('editDistributor');
     Route::patch('/updateDistributor/{id_distributor}', [DistributorController::class, 'updateDistributor'])->name('updateDistributor');
     Route::get('/deleteDistributor/{id_distributor}', [DistributorController::class, 'deleteDistributor'])->name('deleteDistributor');
+
+    // Pasok
+    Route::get('/pasok-buku', [BookController::class, 'indexPasokBuku'])->name('indexPasokBuku');
+    Route::get('/get-pasok', [BookController::class, 'getPasok'])->name('getPasok');
+    Route::get('/input-pasok-buku', [BookController::class, 'indexInputPasokBuku'])->name('indexInputPasokBuku');
+    Route::post('/input-pasok-buku', [BookController::class, 'inputPasokBuku'])->name('inputPasokBuku');
+    Route::get('/cetakPasok', [BookController::class, 'cetakPasok'])->name('cetakPasok');
+
 });
 
 //Kasir

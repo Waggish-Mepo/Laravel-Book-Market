@@ -12,6 +12,7 @@ class Book extends Model
 
     protected $table = "tbl_buku";
     protected $primaryKey = "id_buku";
+    public $incrementing = false;
     protected $fillable = [
         'id_buku', 'judul', 'noisbn', 'penulis', 'penerbit', 'tahun', 'stok', 'harga_pokok', 'harga_jual', 'ppn', 'diskon', 'created_at', 'updated_at'
     ];
