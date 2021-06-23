@@ -24,8 +24,10 @@
 
         <div class="card-body">
           <a href="{{route('cetakBuku')}}" target="_blank" class="btn btn-success mb-3">Cetak</a>
+
           <a href="{{route('bukuExport')}}" class="btn btn-danger mb-3">Export Excel</a>
-            <table class="table">
+
+            <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Kode Buku</th>
