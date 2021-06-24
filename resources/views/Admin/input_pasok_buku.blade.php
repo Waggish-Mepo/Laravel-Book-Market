@@ -16,7 +16,7 @@
             <div class="content">
                 <div class="container-fluid">
 
-                    <div class="card card-primary card-outline mt-3">
+                    <div class="card card- card-outline mt-3">
                         <div class="card-body">
                             <div class="card-body mb-3">
                                 <h3>Form Buku</h3>
@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="form-group mt-3">
-                                    <button type="submit" class="btn btn-primary">Simpan Data</button>
+                                    <button type="submit" class="btn btn-success">Simpan Data</button>
                                 </div>
                             </form>
                         </div>

@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-success-primary elevation-4">
+<aside class="main-sidebar sidebar-success-primary elevation-4 bg-gradient-success">
     <div class="sidebar">
       <div class="user-panel bg-grey mt-4 pb-1 mb-3 d-flex">
         <div class="info">
@@ -7,8 +7,8 @@
       </div>
       <hr>
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item menu-open">
+        <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item menu-open ">
             <ul class="nav nav-treeview" >
 
               <li class="nav-item" name="inputbuku">

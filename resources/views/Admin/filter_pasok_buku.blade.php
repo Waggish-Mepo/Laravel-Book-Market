@@ -32,7 +32,7 @@
                                         @endforeach
                                     </select>
                                     <br>
-                                    <button type="submit" class="btn btn-lg btn-primary mt-2">Lihat</button>
+                                    <button type="submit" class="btn btn-lg btn-success mt-2">Lihat</button>
                                 </form>
                             </div>
                     </div>

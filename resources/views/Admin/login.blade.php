@@ -13,7 +13,7 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="card card-md card-outline card-primary" style="width: 28rem;">
+  <div class="card card-md card-outline card-success" style="width: 28rem;">
     <div class="card-body">
       <p class="login-box-msg">Silahkan Login</p>
 
@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="col">
-          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <button type="submit" class="btn btn-success btn-block">Sign In</button>
         </div>
       </form>
 
