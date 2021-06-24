@@ -11,15 +11,15 @@ class Book extends Model
     public const DEFAULT_STOCK = 0;
 
     protected $table = "tbl_buku";
-    protected $primaryKey = "id_buku";
+    protected $primarykey = "id_buku";
+    protected $with = ['transactions'];
     public $incrementing = false;
     protected $fillable = [
         'id_buku', 'judul', 'noisbn', 'penulis', 'penerbit', 'tahun', 'stok', 'harga_pokok', 'harga_jual', 'ppn', 'diskon', 'created_at', 'updated_at'
     ];
-    
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class, 'id_buku', 'id_buku');
     }
-
 }

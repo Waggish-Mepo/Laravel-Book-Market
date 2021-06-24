@@ -3,8 +3,8 @@
         <tr>
             <td height="87" colspan="7" align="center">
                 <span><span>STRUK PENJUALAN</span><br />
-                    <strong>Toko Buku</strong></span><br />
-                <span><strong>Alamat : </strong>Alamat : Jl. Ketoprak Baso Siomay Mantap No.8</span>
+                    <strong>Toko Buku Mochi Mepo</strong></span><br />
+                <span><strong>Alamat : </strong>{{$profile->alamat}}</span>
             </td>
         </tr>
         <tr>
@@ -12,7 +12,7 @@
             <td colspan="3" align="right"> 07-03-2017</td>
         </tr>
         <tr>
-            <td colspan="7"><strong>Kasir :</strong> {{$receipt->kasir}}</td>
+            <td colspan="7"><strong>Kasir :</strong> {{$cashier->name}}</td>
         </tr>
         <tr>
             <th style="border: 1px solid black;" bgcolor="#F5F5F5">No</th>

@@ -21,16 +21,14 @@
 
                             <div class="form-group">
                                 <label for="faktur-select">No Faktur</label>
-                                <select class="form-control" id="faktur-select">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select class="form-control" name="faktur" id="faktur-select">
+                                @foreach ($transactions as $tr)
+                                    <option>{{$tr->id_penjualan}}</option>
+                                @endforeach
                                 </select>
                             </div>
 
-                            <button type="button" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#modal-print-invoice">Cetak</button>
+                            <button type="button" onclick="print()" class="btn btn-lg btn-block btn-primary" data-toggle="modal" data-target="#modal-print-invoice">Cetak</button>
                         </div>
                     </div>
                 </div>
@@ -45,9 +43,17 @@
         </aside>
     </div>
 
-    @include('Kasir._print_invoice')
-
     @include('Template.script')
 </body>
+
+<script>
+    function print(route){
+        let id = $('select[name=faktur] option').filter(':selected').val();
+        let url = `/print/${id}`;
+
+        window.open(url, '_blank').focus();
+        console.log(id);
+    }
+</script>
 
 </html>

@@ -1,9 +1,5 @@
 
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
     @include('Template.head')
@@ -11,27 +7,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-  <!-- Navbar -->
   @include('Template.navbar')
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
   @include('Template.sidebar')
 
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
 
-      <div class="card card-primary card-outline mt-3">
+      <div class="card mt-3">
         <div class="card-body">
-            <div class="card-body">
-                <h3>Form Buku</h3>
+            <div class="card-header mb-3">
+                <h3>Semua Data Buku</h3>
             </div>
         </div>
-       
+
         <div class="card-body">
           <a href="{{route('cetakBuku')}}" target="_blank" class="btn btn-success mb-3">Cetak</a>
 
@@ -41,7 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <thead>
                   <tr>
                     <th scope="col">Kode Buku</th>
-                    <th scope="col">judul</th>
+                    <th scope="col">Judul</th>
                     <th scope="col">No ISBN</th>
                     <th scope="col">Penulis</th>
                     <th scope="col">Penerbit</th>
@@ -65,40 +55,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td>{{$book->diskon}}</td>
                   </tr>
                 @endforeach
-                  
                 </tbody>
               </table>
         </div>
-        
       </div>
-        
-      </div><!-- /.container-fluid -->
+      </div>
     </div>
-    <!-- /.content -->
   </div>
 
-
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
     <div class="p-3">
       <h5>Title</h5>
       <p>Sidebar content</p>
     </div>
   </aside>
-  <!-- /.control-sidebar -->
-
 
 </div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
   @include('Template.script')
   
   @include('sweetalert::alert')
+
+  <script>
+        $(document).ready(function() {
+            $('table').dataTable();
+        } );
+    </script>
 </body>
 </html>
